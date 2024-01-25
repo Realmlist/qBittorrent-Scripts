@@ -19,11 +19,7 @@ ignore_private=false
 clean_existing_trackers=false
 
 # Configure here your trackers list
-declare -a live_trackers_list_urls=(
-	"https://newtrackon.com/api/live"
-	"https://cf.trackerslist.com/best.txt"
-	"https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt"
-	)
+declare -a live_trackers_list_urls=([0]="https://newtrackon.com/api/live" [1]="https://cf.trackerslist.com/best.txt" [2]="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt")
 ########## CONFIGURATIONS ##########
 
 jq_executable="$(command -v jq)"

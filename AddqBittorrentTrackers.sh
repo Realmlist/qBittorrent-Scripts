@@ -1,10 +1,12 @@
 #!/bin/bash
 
+LOG_FILE=/config/trackers-list/updateTrackersList.log
+
 ########## CONFIGURATIONS ##########
 # Host on which qBittorrent runs
-qbt_host="http://10.0.0.100"
+qbt_host="localhost"
 # Port -> the same port that is inside qBittorrent option -> Web UI -> Web User Interface
-qbt_port="8081"
+qbt_port="8080"
 # Username to access to Web UI
 qbt_username="admin"
 # Password to access to Web UI
@@ -18,10 +20,9 @@ clean_existing_trackers=false
 
 # Configure here your trackers list
 declare -a live_trackers_list_urls=(
-	"https://newtrackon.com/api/stable"
-	"https://trackerslist.com/best.txt"
-	"https://trackerslist.com/http.txt"
-	"https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt"
+	"https://newtrackon.com/api/live"
+	"https://cf.trackerslist.com/best.txt"
+	"https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt"
 	)
 ########## CONFIGURATIONS ##########
 
@@ -386,3 +387,4 @@ else # auto_tor_grab active, so some *Arr
 		inject_trackers $hash
 	fi
 fi
+>> $LOG_FILE
